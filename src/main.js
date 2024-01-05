@@ -11,7 +11,7 @@ const options = {
 //특정객체에 있는 프로퍼티에 접근할때 쓰는 방법 = .
 fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
   .then(response => response.json())
-  //then의 값은 다음 then의 프로퍼티로 들어간다.
+  //then의 값은 다음 then의 프로퍼티로 들어간다. 즉 response.json이 다음then의 data로 들어간것
   //fetch로 받아온 값은 json으로 변환해줘야 쓸수 있다.
   .then(data => {
     const dataArray = data.results;
