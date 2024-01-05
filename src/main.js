@@ -72,6 +72,8 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
     //     movieCard.style.display = 'block';
     //   }
     // })
+
+  
     const clickCard = document.getElementById('id');
     clickCard.addEventListener('click',function(){
       const clickedMovieId = movie.id;
@@ -84,4 +86,5 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
 
 //영화카드를 클릭하면 사진의 ID값을 나타내줌
 
-
+//다시 오면 해야할일
+// 버튼 만들기와 검색어 입력 값 확인하기

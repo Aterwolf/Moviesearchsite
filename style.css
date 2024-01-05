@@ -50,7 +50,6 @@ header {
   border-radius: 10px;
   cursor: pointer;
   user-select: none;
-  display: block;
 }
 
 .movie-card img {
