@@ -8,13 +8,15 @@ const options = {
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZjMxYWRjMzZiMzk3MWNjM2UzOTg5OThhZDFmODRjMiIsInN1YiI6IjY1OTY0OThkZWQ5NmJjMmMyM2Y3NjE1NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7EGWUI2YWojjz5Gghpa9kHKXdanBd5Q373LcUZpwud4'
   }
 };
+let dataArray;
+
 //특정객체에 있는 프로퍼티에 접근할때 쓰는 방법 = .
 fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
   .then(response => response.json())
   //then의 값은 다음 then의 프로퍼티로 들어간다. 즉 response.json이 다음then의 data로 들어간것
   //fetch로 받아온 값은 json으로 변환해줘야 쓸수 있다.
   .then(data => {
-    let dataArray = data.results;
+    dataArray = data.results;
     console.log(dataArray); //dataArray값을 출력
     dataArray.forEach(function (movie) {
       // console.log(`${movie.title} - ${movie.release_date}`);
@@ -37,6 +39,7 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
       //div 안에 내용 추가
       movieListElement.appendChild(movieCard);  //부모에게 반환
     });
+  })//inputdata에서 받은 값으로 dataArray를 filter로 돌려준 값에 해당되는 id를 가진 div를 숨겨준다.
 
     //입력칸에 제목을 입력하고 검색을 누르면 입력한 내용에 해당되는 영화만 출력
 
@@ -62,28 +65,12 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
         }
       }
     })
-
-    // dataArray.forEach(function(movie){
-    //   const movieID = document.getElementById(`${movie.id}`);
-
-    //   if(!searchResult.includes(movie.id)){
-    //     movieCard.style.display = 'none';
-    //   }else{
-    //     movieCard.style.display = 'block';
-    //   }
-    // })
-
   
     const clickCard = document.getElementById('id');
     clickCard.addEventListener('click',function(){
       const clickedMovieId = movie.id;
       window.alert(`${clickedMovieId}`);
     })
-    
-
-  })//inputdata에서 받은 값으로 dataArray를 filter로 돌려준 값에 해당되는 id를 가진 div를 숨겨준다.
-
-
 //영화카드를 클릭하면 사진의 ID값을 나타내줌
 
 //다시 오면 해야할일
